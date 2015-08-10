@@ -1,8 +1,11 @@
 module.exports = MaybeHug
 
 function MaybeHug (cutie) {
-  if (!this) {
-    new MaybeHug(cutie).hug()
+  if (cutie === null || cutie === undefined) {
+    throw new TypeError("no cutie to maybe hug :(")
+  }
+  if (!(this instanceof MaybeHug)) {
+    return new MaybeHug(cutie).hug()
   } else {
     this.cutie = cutie
   }
