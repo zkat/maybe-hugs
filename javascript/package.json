@@ -1,0 +1,23 @@
+{
+  "name": "maybe-hugs",
+  "version": "1.0.0",
+  "description": "Conditional hugging implementation for JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zkat/maybe-hugs.git"
+  },
+  "keywords": [
+    "hugs",
+    "cute"
+  ],
+  "author": "Kat Marchán <kzm@sykosomatic.org>",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/zkat/maybe-hugs/issues"
+  },
+  "homepage": "https://github.com/zkat/maybe-hugs#readme"
+}
