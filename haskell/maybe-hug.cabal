@@ -3,14 +3,13 @@ version:             0.1.0.0
 synopsis:            Initial project template from stack
 description:         Please see README.md
 homepage:            http://github.com/name/project
-license:             BSD3
-license-file:        LICENSE
+license:             CC0-1.0
 author:              Your name here
 maintainer:          your.address@example.com
--- copyright:           
+-- copyright:
 category:            Web
 build-type:          Simple
--- extra-source-files:  
+-- extra-source-files:
 cabal-version:       >=1.10
 
 library
