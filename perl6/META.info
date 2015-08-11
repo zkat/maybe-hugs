@@ -1,0 +1,13 @@
+{
+    "name"        : "Maybe::Hugs",
+    "version"     : "1.0.0",
+    "description" : "Conditional hugging implementation for Perl6",
+    "provides"    : {
+        "Maybe::Hug" : "lib/Maybe/Hug.pm",
+        "Cutie"      : "lib/Cutie.pm"
+    },
+    "author"      : "Rebecca Turner",
+    "depends"     : [],
+    "source-type" : "git",
+    "source-url"  : "git://github.com/zkat/maybe-hugs.git"
+}
