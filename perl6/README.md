@@ -5,8 +5,8 @@ Maybe-Hugs
 need Cutie;
 use Maybe::Hug;
 
-my Cutie $alice = "Alice" does Cutie(:accept-hugs(True));
-my Cutie $betty = "Betty" does Cutie(:accept-hugs(False));
+my Cutie $alice = "Alice" does Cutie(:accept-hugs);
+my Cutie $betty = "Betty" does Cutie;
 my Str $spot = "Spot";
 
 my Int $test = 0;

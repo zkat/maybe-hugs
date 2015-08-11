@@ -1,3 +1,3 @@
 role Cutie {
-  has Bool $.accept-hugs is rw;
+  has Bool $.accept-hugs is rw = False;
 }
