@@ -11,12 +11,4 @@ namespace MaybeHugs\Cutie;
 class EmpathyCutie extends AbstractCutie
 {
     const HUG_MESSAGE = 'Cutie prefers empathy!';
-
-    /**
-     * @return bool
-     */
-    public function isHuggable()
-    {
-        return false;
-    }
 }

@@ -12,11 +12,5 @@ class HuggableCutie extends AbstractCutie
 {
     const HUG_MESSAGE = 'HUG!';
 
-    /**
-     * @return bool
-     */
-    public function isHuggable()
-    {
-        return true;
-    }
+    use HuggableTrait;
 }

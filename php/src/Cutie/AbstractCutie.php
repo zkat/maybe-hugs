@@ -18,4 +18,12 @@ abstract class AbstractCutie implements CutieInterface
     {
         return static::HUG_MESSAGE;
     }
+
+    /**
+     * @return bool
+     */
+    public function isHuggable()
+    {
+        return false;
+    }
 }

@@ -6,6 +6,9 @@
   "authors": [
     {"name": "Mario Álvarez", "email":"ahoy@m4grio.me"}
   ],
+  "require": {
+    "php": ">=5.4"
+  },
   "require-dev": {
     "phpunit/phpunit": "^4.8"
   },
