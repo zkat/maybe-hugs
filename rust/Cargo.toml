@@ -1,4 +1,4 @@
 [package]
-name = "rust"
+name = "maybe-hug"
 version = "0.1.0"
 authors = ["Toby Ho <airportyh@gmail.com>"]
