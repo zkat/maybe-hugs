@@ -1,0 +1,17 @@
+{
+  "name": "maybe-hugs",
+  "description": "Sometimes, you want to offer someone a hug. Maybe they're cute and you like them. Maybe they feel bad and you want to comfort them. Some humans like physical contact. Some don't. Some like them from you, and some might prefer them from someone else. Maybe they just don't feel like being touched right now even though they usually love hugs.",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {"name": "Mario Álvarez", "email":"ahoy@m4grio.me"}
+  ],
+  "require-dev": {
+    "phpunit/phpunit": "^4.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "MaybeHugs\\": "src"
+    }
+  }
+}
