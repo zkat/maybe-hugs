@@ -14,19 +14,12 @@ MaybeHug::MaybeHug(Cutie* cutie)
 
 void MaybeHug::hug()
 {
-	try
+	if (cutie->acceptsHugs())
 	{
-		if (cutie->acceptsHugs())
-		{
-			cutie->hug();
-		}
-		else
-		{
-			cutie->empathy();
-		}
+		cutie->hug();
 	}
-	catch (NoCutieException)
+	else
 	{
-		std::cerr << "No Cutie provided to MaybeHug :(";
+		cutie->empathy();
 	}
 }
