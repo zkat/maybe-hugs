@@ -2,14 +2,14 @@ import unittest
 from MaybeHug import MaybeHug
 
 class MaybeHugTest(unittest.TestCase):
-    class Cuite():
+    class cutie():
         def hug(self):
             return 'HUG!'
 
     class NoHugs(): pass
 
     def testGethug(self):
-        res  = MaybeHug(MaybeHugTest.Cuite()).hug()
+        res  = MaybeHug(MaybeHugTest.cutie()).hug()
         self.assertEqual(res, 'HUG!')
 
     def testNoHug(self):
