@@ -11,7 +11,6 @@ private:
 public:
 	Cutie();
 
-public:
 	void setAcceptsHugs(bool value);
 	bool acceptsHugs();
 
