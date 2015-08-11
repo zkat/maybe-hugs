@@ -17,8 +17,8 @@ public:
 	void hug();
 	void empathy();
 
-	unsigned int showHugs();
-	unsigned int showTlc();
+	unsigned int getNumberOfHugs();
+	unsigned int getNumberOfTlc();
 };
 
 #endif

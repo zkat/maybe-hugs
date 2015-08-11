@@ -28,12 +28,12 @@ void Cutie::empathy()
 	++tlc;
 }
 
-unsigned int Cutie::showHugs()
+unsigned int Cutie::getNumberOfHugs()
 {
 	return hugs;
 }
 
-unsigned int Cutie::showTlc()
+unsigned int Cutie::getNumberOfTlc()
 {
 	return tlc;
 }

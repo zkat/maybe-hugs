@@ -13,10 +13,10 @@ int main()
 	testHugger(hugger, true);
 	testHugger(nonHugger, false);
 
-	std::cout << "Hugger got " << hugger->showHugs() << " hugs "
-		<< " and " << hugger->showTlc() << " empathies.\n";
-	std::cout << "Non-hugger got " << nonHugger->showHugs() << " hugs "
-		<< " and " << nonHugger->showTlc() << " empathies.\n";
+	std::cout << "Hugger got " << hugger->getNumberOfHugs() << " hugs "
+		<< " and " << hugger->getNumberOfTlc() << " empathies.\n";
+	std::cout << "Non-hugger got " << nonHugger->getNumberOfHugs() << " hugs "
+		<< " and " << nonHugger->getNumberOfTlc() << " empathies.\n";
 }
 
 void testHugger(Cutie* &cutie, bool testVal)
