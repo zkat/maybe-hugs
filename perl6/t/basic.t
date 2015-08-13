@@ -1,26 +1,32 @@
+use Test;
 need Cutie;
 use Maybe::Hug;
 
-my Cutie $alice = "Alice" does Cutie(:accept-hugs);
-my Cutie $betty = "Betty" does Cutie;
-my Str $spot = "Spot";
-
-my Int $test = 0;
-
-say "1..4";
-
-say "{maybe-hug($alice) ?? "ok" !! "not ok"} {++$test} - {$alice} Hugs ({maybe-hug($alice)})";
-
-say "{maybe-hug($betty) ?? "not ok" !! "ok"} {++$test} - {$betty} Doesn't Hug";
-
-try {
-  say "not ok {++$test} - {$spot} doesn't even ({maybe-hug($spot)})";
-  CATCH {
-    when X::Method::NotFound {
-      say "ok {$test} - {$spot} doesn't even";
-    }
-  }
+role Huggable does Cutie {
+  has Bool $.hug-ok is rw = False;
+  method accept-hugs() { $.hug-ok }
 }
 
-$alice.accept-hugs = False;
-say "{maybe-hug($alice) ?? "not ok" !! "ok"} {++$test} - {$alice} changed her mind";
+role AlternatingHuggable does Cutie {
+  has $!hugs = 0;
+  method accept-hugs() { Bool(++$!hugs % 2) }
+}
+
+my Cutie $alice = "Alice" does Huggable(:hug-ok);
+my Cutie $betty = "Betty" does Huggable;
+my Cutie $carol = "Carol" does AlternatingHuggable;
+my $elision = "Elision";
+
+plan 6;
+
+ok maybe-hug($alice), "$alice Hugs";
+
+ok !maybe-hug($betty), "$betty Didn't positively affirm huggability, so no hugs";
+
+ok maybe-hug($carol), "$carol wants one this time";
+ok !maybe-hug($carol), "$carol doesn't now though";
+
+throws-like { maybe-hug $elision }, X::TypeCheck, "$elision doesn't even";
+
+$alice.hug-ok = False;
+ok !maybe-hug($alice), "$alice changed her mind";
