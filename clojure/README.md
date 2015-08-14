@@ -17,9 +17,3 @@ Run the maybe-hugs tests like this:
     $ lein test
 
 If you don't have Leiningen installed, see http://leiningen.org
-
-## License
-
-Copyright © 2015 Sean Corfield
-
-Distributed under the Eclipse Public License version 1.0.
