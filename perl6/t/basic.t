@@ -19,14 +19,14 @@ my $elision = "Elision";
 
 plan 6;
 
-ok maybe-hug($alice), "$alice Hugs";
+ok {{$alice}}, "$alice Hugs";
 
-ok !maybe-hug($betty), "$betty Didn't positively affirm huggability, so no hugs";
+ok !{{$betty}}, "$betty Didn't positively affirm huggability, so no hugs";
 
-ok maybe-hug($carol), "$carol wants one this time";
-ok !maybe-hug($carol), "$carol doesn't now though";
+ok {{$carol}}, "$carol wants one this time";
+ok !{{$carol}}, "$carol doesn't now though";
 
-throws-like { maybe-hug $elision }, X::TypeCheck, "$elision doesn't even";
+throws-like { {{$elision}} }, X::TypeCheck, "$elision doesn't even";
 
 $alice.hug-ok = False;
-ok !maybe-hug($alice), "$alice changed her mind";
+ok !{{$alice}}, "$alice changed her mind";
