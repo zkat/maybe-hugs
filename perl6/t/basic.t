@@ -2,31 +2,54 @@ use Test;
 need Cutie;
 use Maybe::Hug;
 
-role Huggable does Cutie {
-  has Bool $.hug-ok is rw = False;
-  method accept-hugs() { $.hug-ok }
+role HugAllCuties does Cutie {
+  multi method accept-hugs (Any $from) { True }
+}
+role HugNoCuties does Cutie {
+  multi method accept-hugs (Any $from) { False }
+}
+role HugSomeCuties does Cutie {
+  has @.whom;
+  multi method accept-hugs (Cutie $from) { Bool(@.whom.first: {$_ === $from}) }
+}
+role HugSometimes does Cutie {
+  has $.in-the-mood is rw = False;
+  multi method accept-hugs (Any $from) { $.in-the-mood }
 }
 
-role AlternatingHuggable does Cutie {
-  has $!hugs = 0;
-  method accept-hugs() { Bool(++$!hugs % 2) }
-}
-
-my Cutie $alice = "Alice" does Huggable(:hug-ok);
-my Cutie $betty = "Betty" does Huggable;
-my Cutie $carol = "Carol" does AlternatingHuggable;
+my Cutie $alice = "Alice" does HugAllCuties;
+my Cutie $betty = "Betty" does HugNoCuties;
+my Cutie $carol = "Carol" does HugSomeCuties(:whom($alice));
+my Cutie $danielle = "Danielle" does HugSometimes;
 my $elision = "Elision";
 
-plan 6;
+plan 12;
 
-ok maybe-hug($alice), "$alice Hugs";
+my $wants-hugs = {
+  my $msg = "{.cutie} wants hugs{.from ?? " from {.from}" !! "" }";
+  .hugs: { pass $msg }
+  .empathy: { flunk $msg }
+}
+my $wants-empathy = {
+  my $msg = "{.cutie} wants empathy{.from ?? " from {.from}" !! "" }";
+  .hugs: { flunk $msg }
+  .empathy: { pass $msg }
+}
 
-ok !maybe-hug($betty), "$betty Didn't positively affirm huggability, so no hugs";
+given {{$alice}} { $wants-hugs($_) };
+given $betty ==> {{$alice}} { $wants-hugs($_) }
+given $carol ==> {{$alice}} { $wants-hugs($_) }
 
-ok maybe-hug($carol), "$carol wants one this time";
-ok !maybe-hug($carol), "$carol doesn't now though";
+given {{$betty}} { $wants-empathy($_) };
+given $alice ==> {{$betty}} { $wants-empathy($_) };
+given $carol ==> {{$betty}} { $wants-empathy($_) };
 
-throws-like { maybe-hug $elision }, X::TypeCheck, "$elision doesn't even";
+given {{$carol}} { $wants-empathy($_) };
+given $alice ==> {{$carol}} { $wants-hugs($_) };
+given $betty ==> {{$carol}} { $wants-empathy($_) };
 
-$alice.hug-ok = False;
-ok !maybe-hug($alice), "$alice changed her mind";
+throws-like { {{$elision}} }, X::TypeCheck, "$elision doesn't even";
+
+given {{$danielle}} { $wants-empathy($_) }
+$danielle.in-the-mood = True;
+given {{$danielle}} { $wants-hugs($_) }

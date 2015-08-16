@@ -1,7 +1,10 @@
 class Maybe::Hug {
   has $.cutie where { .can('accept-hugs') };
-  method hug { $.cutie.accept-hugs() ?? "HUG!" but True !! "Empathy!" but False }
+  has $.from;
+  method hugs(&dothething) { dothething() if self }
+  method empathy(&dothething) { dothething() unless self }
+  method by($from) { Maybe::Hug.new(:$!cutie, :$from) }
+  method Bool() { $!cutie.accept-hugs($!from) }
 }
 
-sub maybe-hug($cutie) is export { Maybe::Hug.new(:$cutie).hug() }
-
+sub circumfix:<{{ }}>($cutie, $from?) is export { Maybe::Hug.new(:$cutie, :$from) }

@@ -1,3 +1,3 @@
 role Cutie {
-  method accept-hugs { … }
+  multi method accept-hugs (Mu $from) { False }
 }
