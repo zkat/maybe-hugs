@@ -4,7 +4,7 @@ set -e
 
 if [[ -z "$*" ]]; then
 cat - <<USAGE
-Usage: $0 <cutie...>
+Usage: $0 <name...>
 
 Set environment variable $<name>_HUGGABLE to define if a cutie should be hugged.
 A value of 1 means the cutie would like hugs. If the variable is not set, or set
@@ -14,8 +14,13 @@ exit 1
 fi
 
 for CUTIE in "$@"; do
+    # Replace spaces with underscores and transform chracters to uppercase.
     CUTIE_NAME=${CUTIE// /_}
-    eval HUGGABLE=\$"${CUTIE_NAME^^}_HUGGABLE"
+    CUTIE_NAME=$(echo $CUTIE_NAME | awk '{print toupper($0)}')
+
+    # Set $HUGGABLE based on the cutie name suffixed with '_HUGGABLE'.
+    eval HUGGABLE=\$"${CUTIE_NAME}_HUGGABLE"
+
     if [[ ! -z "$HUGGABLE" ]] && [[ "$HUGGABLE" = 1 ]]; then
         echo "Hugs for $CUTIE!"
     else
