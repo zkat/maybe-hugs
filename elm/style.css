@@ -1,0 +1,63 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font: 16px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  line-height: 1.5em;
+  background-color: #eaeaea;
+  color: #444;
+  width: 550px;
+  margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+#maybehugapp {
+  background: #fff;
+  background: rgba(255, 255, 255, 0.9);
+  margin-top: 50px;
+  height: 430px;
+  border: 1px solid #ccc;
+  position: relative;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2),
+  0 25px 50px 0 rgba(0, 0, 0, 0.15);
+}
+
+#maybehugapp h1, #maybehugapp h2 {
+  width: 100%;
+  font-weight: bold;
+  text-align: center;
+  color: #aaa;
+  color: rgba(128, 128, 128, 0.3);
+  text-shadow: -1px -1px rgba(0, 0, 0, 0.2);
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  -ms-text-rendering: optimizeLegibility;
+  -o-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
+}
+
+#maybehugapp h1 {
+  font-size: 70px;
+}
+
+#maybehugapp h2 {
+  font-size: 30px;
+}
+
+.cutie {
+  width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,15 @@
+{
+    "version": "1.0.0",
+    "summary": "Conditional hugging implementation in elm",
+    "repository": "https://github.com/zkat/maybe-hugs.git",
+    "license": "CC0-1.0",
+    "source-directories": [
+        "."
+    ],
+    "exposed-modules": [],
+    "dependencies": {
+        "elm-lang/core": "2.1.0 <= v < 3.0.0",
+        "evancz/elm-html": "4.0.1 <= v < 5.0.0"
+    },
+    "elm-version": "0.15.1 <= v < 0.16.0"
+}
