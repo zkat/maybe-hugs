@@ -1,0 +1,24 @@
+{
+  "name": "maybe-hugs-elm",
+  "version": "1.0.0",
+  "description": "Conditional hugging implementation in elm",
+  "scripts": {
+    "start": "ELM_HOME=node_modules/elm/share elm-reactor",
+    "make": "elm-make MaybeHugs.elm",
+    "postinstall": "npm run make"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zkat/maybe-hugs.git"
+  },
+  "author": "Bastian Krol <bastian.krol@web.de>",
+  "license": "CC0-1.0",
+  "keywords": [
+    "hugs",
+    "cute"
+  ],
+  "homepage": "https://github.com/zkat/maybe-hugs#readme",
+  "dependencies": {
+    "elm": "^2.0.0"
+  }
+}
