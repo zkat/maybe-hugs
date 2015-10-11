@@ -5,7 +5,7 @@ defmodule Cutie do
     if cutie[:accepts] do
       cutie[:name] <> " accepts hug!"
     else
-      cutie[:name] <> " does not accept hug!"
+      cutie[:name] <> " prefers empathy!"
     end
   end
 
