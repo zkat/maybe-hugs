@@ -1,7 +1,7 @@
 import IO
 require Cutie
 
-cutie_person = %{:name => "Jonh",:accepts => true}
+cutie_person = %{:name => "John",:accepts => true}
 empathic_person = %{:name => "Mary",:accepts => false}
 
 puts Cutie.hug(cutie_person)
