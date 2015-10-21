@@ -14,7 +14,7 @@ public class Human {
 
 }
 
-public class HelloWorld
+public class HelloHug
 {
    public static void Main()
    {
