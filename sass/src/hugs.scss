@@ -1,0 +1,9 @@
+@import "_maybe-hugs";
+
+.empathy::before {
+  content: maybe-hugs();
+}
+
+.hug::before {
+  content: maybe-hugs($accepts-hugs:true);
+}
