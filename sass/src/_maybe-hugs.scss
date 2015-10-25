@@ -1,0 +1,7 @@
+@function maybe-hugs ($accepts-hugs:false) {
+  @if ($accepts-hugs == true) {
+    @return "HUG!";
+  } @else {
+    @return "Empathy!"; 
+  }
+}

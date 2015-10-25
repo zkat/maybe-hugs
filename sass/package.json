@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "node-sass ./src -o ./dist"
+  },
+  "dependencies": {
+    "node-sass": "^3.3.3"
+  }
+}
