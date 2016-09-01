@@ -1,0 +1,23 @@
+(load "minitest/minitest")
+(load "maybe-hug/maybe-hug")
+
+(import-all "minitest")
+
+(minitest:colorize #t)
+(minitest:verbose #t)
+
+(minitest:assert-true
+  (all? cutie:cutie? (generate-cuties 10))
+  "assert that we get a list of cuties back when we generate cuties")
+
+(minitest:assert-equal
+  10
+  (length (generate-cuties 10))
+  "assert that we get a list of the right length when we generate cuties")
+
+(minitest:assert-true
+  (cutie:get-wants-hug? (cutie:make-cutie #t))
+  "assert that a huggable cutie wants a hug")
+
+(minitest:results)
+(exit 0)

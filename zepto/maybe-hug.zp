@@ -1,0 +1,32 @@
+(define-struct cutie (wants-hug?))
+
+(defprotocol huggable (try-hug 1))
+(defimpl huggable cutie:cutie?
+        ((try-hug
+            (lambda (cutie)
+              (if (cutie:get-wants-hug? cutie)
+                (write "This cutie hugs you!")
+                (write "This cutie doesn't want to hug. You awkwardly shake hands instead..."))))))
+
+(define (generate-cuties n)
+  "generates <par>n</par> cuties. They might be huggable. Or not.
+
+   params:
+    - n: the number of cuties to generate
+   complexity: O(n)
+   returns: a list of cuties"
+  (begin
+    (random (cadr (unix-timestamp))) ; seed the prng
+    (map ($ (cutie:make-cutie (truthy? %))) (random-list n 2))))
+
+(define (main)
+  "the main function. Generates 10 cuties and tries to hug them.
+
+  complexity: O(1)
+  returns: this primitive terminates the program"
+  (begin
+    (write "There are ten cuties in front of you!")
+    (write "Let's try to hug them!\n")
+    (let ((cuties (generate-cuties 10)))
+      (map try-hug cuties))
+    (exit 0)))

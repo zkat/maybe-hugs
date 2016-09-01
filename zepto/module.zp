@@ -1,0 +1,15 @@
+#{:name "maybe-hug"
+  :version "0.0.1"
+  :license "GPLv2"
+  :type :tool
+  :entry-point "main.zp"
+  :tests []
+  :author #{:name "Veit Heller"
+            :email "veit@veitheller.de"
+            :github "@hellerve"}
+  :zepto #{:version :any
+           :ez #f
+           :bz #f}
+  :dependencies ()
+  :dev-dependencies ()}
+
